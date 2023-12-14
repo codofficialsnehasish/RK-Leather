@@ -2106,31 +2106,57 @@ if (!function_exists('numberTowords')) {
    }
    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+   if (!function_exists('instagram')) {
+    function instagram( $AccessToken , $feed = null ){
+        $timestamp = mktime(date('H'), date('i'), 0, date('n'), date('j') - 1, date('Y'));
+        $AccessToken = 'IGQWRNYjZAXR1RmU1F2dU52S1lyV2tWdEIzWUdQRFNUSkkzSUFoSDNiendHdGVhMVJsdnVHTGJ0LWVnRlhQM2NKZAlh1S1daVXZAwSjBiRkZAnSzhzTGd2YkVuSnFJMW1jY3JnNjhfS2FyNm5QeGNoUDFRUlRLMHZA4ZAm8ZD';
+        $instagram_user_id = '6909482402420405';
+        $url = 'https://graph.instagram.com/'.$instagram_user_id.'/media?access_token=' . $AccessToken;
+        $counter = 0;
+     
+        $ch = curl_init();
+     
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_HEADER, false);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+        curl_setopt($ch, CURLOPT_MAXREDIRS, 10);
+        curl_setopt($ch, CURLOPT_USERAGENT, 'Instagram Gallery');
+     
+        $result = curl_exec($ch);
+        $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+     
+        $result = json_decode($result);
+        $resultArray = array();
+        foreach ($result->data as $media_id){
+            $id = $media_id->id;;
+             
+            $counter++;
+            if( $counter <= $feed ){
+             
+                if( $id ) {
+                    $url = 'https://graph.instagram.com/'.$id.'?fields=id,media_type,media_url,username,timestamp,permalink&access_token=' . $AccessToken;
+                    $ch = curl_init();
+                    curl_setopt($ch, CURLOPT_URL, $url);
+                    curl_setopt($ch, CURLOPT_HEADER, false);
+                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+                    curl_setopt($ch, CURLOPT_MAXREDIRS, 10);
+                    curl_setopt($ch, CURLOPT_USERAGENT, 'Instagram Gallery');
+     
+                    $result_image = curl_exec($ch);
+                    $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+                    curl_close($ch);
+                    $result_image = json_decode($result_image);
+                   // return $result_image;
+                    $resultArray[] = $result_image;
+                   // $resultArray['media_url'] = $result_image->media_url;
+                   // echo '<span class="instagram-image"><a href="' .$result_image->permalink. '" target="_blank"><img src="' .$result_image->media_url. '"/></a></span>';
+                }
+            }
+        }
+    
+        return $resultArray;
+    }
+    }

@@ -265,54 +265,28 @@
                   </div>
                   <!-- Instagram Slider -->
                   <div class="instagram-section instagram-slider">
+                     <?php
+                       $instagramData = instagram('instagram',20);
+                         
+                      
+                        foreach($instagramData as $insta){
+                             
+                            $username = isset($insta->username) ? $insta->username : "";
+                            $caption = isset($insta->caption) ? $insta->caption : "";
+                            $media_url = isset($insta->media_url) ? $insta->media_url : "";
+                            $permalink = isset($insta->permalink) ? $insta->permalink : "";
+                            $media_type = isset($insta->media_type) ? $insta->media_type : "";
+                            ?>
+                      
                      <div class="instagram-item">
-                        <a href="#">
-                        <img class="blur-up lazyload" src="<?= base_url('assets/site/images/instagram/1.jpg') ?>" data-src="<?= base_url('assets/site/images/instagram/1.jpg') ?>" alt="image" title="" />
+                        <a href="<?= $permalink; ?>" target="_blank">
+                            <?php if($media_type == 'IMAGE'):?>
+                            <img class="blur-up lazyload" src="<?= $media_url ?>" data-src="<?= $media_url ?>" alt="image" title="" />
+                            <?php endif;?>
                         <span class="inst-icon"><i class="icon an an-instagram"></i></span>
                         </a>
                      </div>
-                     <div class="instagram-item">
-                        <a href="#">
-                        <img class="blur-up lazyload" src="<?= base_url('assets/site/images/instagram/2.jpg') ?>" data-src="<?= base_url('assets/site/images/instagram/2.jpg') ?>" alt="image" title="" />
-                        <span class="inst-icon"><i class="icon an an-instagram"></i></span>
-                        </a>
-                     </div>
-                     <div class="instagram-item">
-                        <a href="#">
-                        <img class="blur-up lazyload" src="<?= base_url('assets/site/images/instagram/3.jpg') ?>" data-src="<?= base_url('assets/site/images/instagram/3.jpg') ?>" alt="image" title="" />
-                        <span class="inst-icon"><i class="icon an an-instagram"></i></span>
-                        </a>
-                     </div>
-                     <div class="instagram-item">
-                        <a href="#">
-                        <img class="blur-up lazyload" src="<?= base_url('assets/site/images/instagram/4.jpg') ?>" data-src="<?= base_url('assets/site/images/instagram/4.jpg') ?>" alt="image" title="" />
-                        <span class="inst-icon"><i class="icon an an-instagram"></i></span>
-                        </a>
-                     </div>
-                     <div class="instagram-item">
-                        <a href="#">
-                        <img class="blur-up lazyload" src="<?= base_url('assets/site/images/instagram/1.jpg') ?>" data-src="<?= base_url('assets/site/images/instagram/1.jpg') ?>" alt="image" title="" />
-                        <span class="inst-icon"><i class="icon an an-instagram"></i></span>
-                        </a>
-                     </div>
-                     <div class="instagram-item">
-                        <a href="#">
-                        <img class="blur-up lazyload" src="<?= base_url('assets/site/images/instagram/2.jpg') ?>" data-src="<?= base_url('assets/site/images/instagram/2.jpg') ?>" alt="image" title="" />
-                        <span class="inst-icon"><i class="icon an an-instagram"></i></span>
-                        </a>
-                     </div>
-                     <div class="instagram-item">
-                        <a href="#">
-                        <img class="blur-up lazyload" src="<?= base_url('assets/site/images/instagram/3.jpg') ?>" data-src="<?= base_url('assets/site/images/instagram/3.jpg') ?>" alt="image" title="" />
-                        <span class="inst-icon"><i class="icon an an-instagram"></i></span>
-                        </a>
-                     </div>
-                     <div class="instagram-item">
-                        <a href="#">
-                        <img class="blur-up lazyload" src="<?= base_url('assets/site/images/instagram/4.jpg') ?>" data-src="<?= base_url('assets/site/images/instagram/4.jpg') ?>" alt="image" title="" />
-                        <span class="inst-icon"><i class="icon an an-instagram"></i></span>
-                        </a>
-                     </div>
+                     <?php }?>
                   </div>
                   <!-- End Instagram Slider -->
                   <div class="followus text-center mt-3 d-none">
