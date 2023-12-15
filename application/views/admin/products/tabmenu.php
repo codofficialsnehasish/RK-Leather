@@ -12,22 +12,22 @@
             <span class="d-none d-md-block">Basic Information</span><span class="d-block d-md-none"><i class="mdi mdi-home-variant h5"></i></span>
         </a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link  <?= tab_active('price-details')?>"  href="<?= admin_url('products/price-details/'.$queryString);?>" role="tab">
+    <!-- <li class="nav-item">
+        <a class="nav-link  <= tab_active('price-details')?>"  href="<= admin_url('products/price-details/'.$queryString);?>" role="tab">
             <span class="d-none d-md-block">Price Details</span><span class="d-block d-md-none"><i class="mdi mdi-account h5"></i></span>
         </a>
     </li>
 
     <li class="nav-item">
-        <a class="nav-link  <?= tab_active('variations')?>"  href="<?= admin_url('products/variations/'.$queryString);?>" role="tab">
+        <a class="nav-link  <= tab_active('variations')?>"  href="<= admin_url('products/variations/'.$queryString);?>" role="tab">
             <span class="d-none d-md-block">Variations</span><span class="d-block d-md-none"><i class="mdi mdi-account h5"></i></span>
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link <?= tab_active('specifications')?>"  href="<?= admin_url('products/specifications/'.$queryString);?>" role="tab">
+        <a class="nav-link <= tab_active('specifications')?>"  href="<= admin_url('products/specifications/'.$queryString);?>" role="tab">
             <span class="d-none d-md-block">Product Specifications</span><span class="d-block d-md-none"><i class="mdi mdi-email h5"></i></span>
         </a>
-    </li>
+    </li> -->
     <li class="nav-item">
         <a class="nav-link <?= tab_active('add-images')?>"  href="<?= admin_url('products/add-images/'.$queryString);?>" role="tab">
             <span class="d-none d-md-block">Product Images</span><span class="d-block d-md-none"><i class="mdi mdi-email h5"></i></span>

@@ -224,7 +224,8 @@ class Products extends Core_Controller {
                     'modesy_sess_product_id' => $product_id
                 );
                 $this->session->set_userdata($user_data);
-				redirect('admin/products/price-details-edit/'.$product_id);
+				// redirect('admin/products/price-details-edit/'.$product_id);
+				redirect('admin/products/add-images-edit/'.$product_id);
 				//redirect($this->agent->referrer());
 			}else{
 				$this->session->set_flashdata('errors', 'Query error');
