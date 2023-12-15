@@ -29,7 +29,7 @@ public function doUpload($file){
         
         $uploadPath = $filename2.'/';
         $config['upload_path'] = $uploadPath;
-        $config['allowed_types'] = 'jpg|jpeg|png|gif';;
+        $config['allowed_types'] = 'jpg|jpeg|png|gif';
         
         // Load and initialize upload library
         $this->_CI->load->library('upload', $config);
@@ -102,7 +102,7 @@ public function doUploadProductImages($file,$product_id,$file_id){
 
 }
 
-public function doUploadvideodata($file,$id,$mid){
+public function doUploadvideodata($file,$id){
     if(!empty($_FILES)){
         // File upload configuration
         $basefolder='./uploads/media/';
@@ -135,7 +135,7 @@ public function doUploadvideodata($file,$id,$mid){
             $uploadData['uploaded_on'] = date("Y-m-d H:i:s");
             $uploadData['video_path'] = substr($uploadPath, 2);
             // $uploadData['id'] = $id;
-            $uploadData['thumbnail'] = $mid;
+            // $uploadData['thumbnail'] = $mid;
             // $uploadData['file_id'] = $file_id;
             
             // Insert files info into the database

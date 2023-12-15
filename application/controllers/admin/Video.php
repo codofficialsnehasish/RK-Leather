@@ -25,23 +25,24 @@ class Video extends Core_Controller {
 	}
     public function process()
 	{
+		// echo $_FILES['file']['tmp_name'];
 		if(is_uploaded_file($_FILES['file']['tmp_name'])) 
         {  
-            $mid=$this->mediaupload->doUpload('file');
+            $data['thumbnail']=$this->mediaupload->doUpload('file');
         }else{
             if($this->input->post('media_id', true)!=''){
-                $mid=$this->input->post('media_id', true);
+                $data['thumbnail']=$this->input->post('media_id', true);
             }else{
-                $mid=$this->input->post('hdn_media_id', true);	
+                $data['thumbnail']=$this->input->post('hdn_media_id', true);	
             }
             
         }
         $id=1;
-		$video = $this->select->select_single_data('video','id',$id);
+		// $video = $this->select->select_single_data('video','id',$id);
+		$this->edit_model->edit($data,1,'id','video');
+		$this->mediaupload->doUploadvideodata('filef',$id);
 		// if (!empty($video)) {
-			$this->mediaupload->doUploadvideodata('filef',$id,$mid);
 			// $data['thumbnail']=$mid;
-			// $this->edit_model->edit($data,$id,'id','video');
 			// $this->edit_model->edit(array('is_main'=>1),$this->input->post('file_id'),'file_id','video');	
 		// }else{
 		// 	$this->mediaupload->doUploadProductImages($this->file_name,$this->input->post('product_id'),$this->input->post('file_id'));

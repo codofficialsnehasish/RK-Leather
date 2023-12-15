@@ -24,7 +24,7 @@
                                         Add New Video
                                     </div>
                                     <div class="card-body text-center">
-                                        <label for=""></label>
+                                        <label for="" class="mb-3 mt-3">Add Thumbnail</label>
                                         <div class="mb-3" style="display: flex;justify-content: center;align-items: center;">
                                             <img class="img-thumbnail rounded me-2" src="<?= get_image($allitems[0]->thumbnail); ?>" id="blah" alt="" width="800" src="" data-holder-rendered="true" style="display:<?= $allitems[0]->thumbnail!=0?'block':'none';?>">
                                         </div>
@@ -36,6 +36,7 @@
                                         </div> 
                                     </div>
                                     <div class="card-body text-center">
+                                        <label for="" class="mb-3 mt-3">Add Video</label>
                                         <div class="mb-3" style="display: flex;justify-content: center;align-items: center;">
                                             <!-- <img class="img-thumbnail rounded me-2" id="blah" alt="" width="800" src="" data-holder-rendered="true" style="display: none;"> -->
                                             <video width="470" height="255" controls>
@@ -43,7 +44,7 @@
                                             </video>
                                         </div>
                                         <div class="mb-0">
-                                            <input type="file" name="filef" class="filestyle" id="imgInp" data-input="false" data-buttonname="btn-secondary">
+                                            <input type="file" name="filef" class="filestyle" data-input="false" data-buttonname="btn-secondary">
                                         </div> 
                                     </div>
                                     <div class="col-lg-2 ml-3">
