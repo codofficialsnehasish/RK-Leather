@@ -82,7 +82,7 @@ public function __construct()
 		$nconditions['order'] = 'desc';
 		$nconditions['tblName'] = 'products';
 		$nconditions['start'] = 0;
-		$nconditions['limit'] = 4;
+		$nconditions['limit'] = 8;
 		$data['newproducts'] = $this->select->getProducts($nconditions);
 		/////////////////////////////////////////////////
 		$tconditions['filter']['is_visible'] = 1;

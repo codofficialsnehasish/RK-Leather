@@ -49,7 +49,7 @@
                                     </div>
                                     <div class="col-lg-2 ml-3">
                                         <div class="card">
-                                            <div class="card-header bg-primary text-light" style="text-align:center;"><input type="submit" value="Publish"></div>
+                                            <div style="text-align:center;"><input type="submit" class="btn btn-primary" value="Save & Update"></div>
                                         </div>
                                     </div>
                                 </div>

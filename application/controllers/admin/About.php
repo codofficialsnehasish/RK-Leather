@@ -207,12 +207,12 @@ class About extends Core_Controller {
         );
         if(is_uploaded_file($_FILES['file']['tmp_name'])) 
         {  
-            $data['media_id']=$this->mediaupload->doUpload('file');
+            $data2['media_id']=$this->mediaupload->doUpload('file');
         }else{
             if($this->input->post('media_id', true)!=''){
-                $data['media_id']=$this->input->post('media_id', true);
+                $data2['media_id']=$this->input->post('media_id', true);
             }else{
-                $data['media_id']=$this->input->post('hdn_media_id', true);	
+                $data2['media_id']=$this->input->post('hdn_media_id', true);	
             }
             
         }
