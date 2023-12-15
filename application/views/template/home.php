@@ -155,7 +155,7 @@
 
 
 
-      <?php if(!empty($newproducts)){?>
+      <?php if(!empty($featuredproducts)){?>
       <!-- Product slider -->
       <div class="product-rows section">
          <div class="container">
@@ -167,7 +167,7 @@
                   <!-- Product List -->
                   <div class="grid-products grid-products-hover-btn">
                      <div class="productSlider">
-                        <?php foreach($newproducts as $top){?>
+                        <?php foreach($featuredproducts as $top){?>
                         <div class="col-12 item">
                            <!-- Product Image -->
                            <div class="product-image">
@@ -234,7 +234,8 @@
       </div>
 
       <!-- Instagram -->
-      <!-- <div class="section home-instagram no-pb-section">
+      <?php if(!empty($$instagramData)){ ?>
+      <div class="section home-instagram no-pb-section">
                <div class="container-fluid">
                   <div class="row">
                      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
@@ -245,27 +246,27 @@
                   </div>
                   <div class="instagram-section instagram-slider">
                      <?php
-                     //   $instagramData = instagram('instagram',20);
+                       $instagramData = instagram('instagram',20);
                          
                       
-                     //    foreach($instagramData as $insta){
+                        foreach($instagramData as $insta){
                              
-                     //        $username = isset($insta->username) ? $insta->username : "";
-                     //        $caption = isset($insta->caption) ? $insta->caption : "";
-                     //        $media_url = isset($insta->media_url) ? $insta->media_url : "";
-                     //        $permalink = isset($insta->permalink) ? $insta->permalink : "";
-                     //        $media_type = isset($insta->media_type) ? $insta->media_type : "";
+                            $username = isset($insta->username) ? $insta->username : "";
+                            $caption = isset($insta->caption) ? $insta->caption : "";
+                            $media_url = isset($insta->media_url) ? $insta->media_url : "";
+                            $permalink = isset($insta->permalink) ? $insta->permalink : "";
+                            $media_type = isset($insta->media_type) ? $insta->media_type : "";
                             ?>
                       
                      <div class="instagram-item">
-                        <a href="<= $permalink; ?>" target="_blank">
-                            <?php //if($media_type == 'IMAGE'):?>
-                            <img class="blur-up lazyload" src="<= $media_url ?>" data-src="<= $media_url ?>" alt="image" title="" />
-                            <?php// endif;?>
+                        <a href="<?= $permalink; ?>" target="_blank">
+                            <?php if($media_type == 'IMAGE'):?>
+                            <img class="blur-up lazyload" src="<?= $media_url ?>" data-src="<?= $media_url ?>" alt="image" title="" />
+                            <?php endif;?>
                         <span class="inst-icon"><i class="icon an an-instagram"></i></span>
                         </a>
                      </div>
-                     <?php //}?>
+                     <?php }?>
                   </div>
                   <div class="followus text-center mt-3 d-none">
                      <a href="#" target="_blank" class="btn">View Gallery</a>
@@ -273,4 +274,5 @@
                </div>
             </div>
          </div>
-         End Body Content -->
+         <?php } ?>
+         <!--End Body Content-->

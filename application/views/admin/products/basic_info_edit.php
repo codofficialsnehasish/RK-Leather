@@ -1,3 +1,4 @@
+
 <div class="page-content">
    <div class="container-fluid">
       <!-- start page title -->
@@ -103,12 +104,12 @@
                            <textarea name="description"  class="form-control editor" rows="5"><?= $item->description;?></textarea>
                         </div>
                      </div>
-                      <div class="mb-3">
+                     <!-- <div class="mb-3">
                         <label class="form-label"> Specification</label>
                         <div>
-                           <textarea name="product_specification"  class="form-control editor" rows="5"><?= $item->product_specification;?></textarea>
+                           <textarea name="product_specification"  class="form-control editor" rows="5"><= $item->product_specification;?></textarea>
                         </div>
-                     </div> 
+                     </div>  -->
                            
                            
                            </div>
@@ -164,11 +165,11 @@
                      <div class="mb-3">
                         <label class="form-label mb-3 d-flex">Visiblity</label>
                         <div class="form-check form-check-inline">
-                           <input type="radio" id="customRadioInline1" name="is_visible" class="form-check-input" value="1" checked>
+                           <input type="radio" id="customRadioInline1" name="is_visible" class="form-check-input" value="1" <?= check_uncheck($item->is_visible,1);?>>
                            <label class="form-check-label" for="customRadioInline1">Show</label>
                         </div>
                         <div class="form-check form-check-inline">
-                           <input type="radio" id="customRadioInline2" name="is_visible" class="form-check-input" value="0">
+                           <input type="radio" id="customRadioInline2" name="is_visible" class="form-check-input" value="0" <?= check_uncheck($item->is_visible,0);?>>
                            <label class="form-check-label" for="customRadioInline2">Hide</label>
                         </div>
                      </div>
@@ -198,7 +199,7 @@
                         </div>
                      </div> -->
                             <div class="mb-3">
-                        <label class="form-label mb-3 d-flex">Is Featured?</label>
+                        <label class="form-label mb-3 d-flex">Is Bestseller?</label>
                         <div class="form-check form-check-inline">
                            <input type="radio" id="pcy" name="is_featured" class="form-check-input" value="1" <?= check_uncheck($item->is_featured,1);?>>
                            <label class="form-check-label" for="pcy">Yes</label>

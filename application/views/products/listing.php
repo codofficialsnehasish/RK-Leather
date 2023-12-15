@@ -1,3 +1,51 @@
+
+<style>
+.navi {
+	position: relative;
+}
+.navi ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.navi ul li {
+  /* Sub Menu */
+}
+.navi ul li a {
+	display: block;
+	/* background: #ebebeb; */
+	padding: 10px 15px;
+	color: #333;
+	text-decoration: none;
+	-webkit-transition: 0.2s linear;
+	-moz-transition: 0.2s linear;
+	-ms-transition: 0.2s linear;
+	-o-transition: 0.2s linear;
+	transition: 0.2s linear;
+}
+.navi ul li a:hover {
+	background: #f8f8f8;
+	color: #515151;
+}
+.navi ul li a .fa {
+	width: 16px;
+	text-align: center;
+	margin-right: 5px;
+	float:right;
+}
+.navi ul ul {
+	background-color:#ebebeb;
+}
+.navi ul li ul li a {
+	background: #f8f8f8;
+	border-left: 4px solid transparent;
+	padding: 10px 20px;
+}
+.navi ul li ul li a:hover {
+	background: #ebebeb;
+	border-left: 4px solid #3498db;
+}
+</style>
 <!-- Body Content -->
 <div id="page-content">
             <!-- Collection Banner -->
@@ -13,41 +61,70 @@
             <div class="container">
                <div class="row">
                   <!-- Sidebar -->
-                  
+                  <div class="col-12 col-sm-12 col-md-3 col-lg-3 sidebar filterbar">
+                     <div class="closeFilter d-block d-md-block d-lg-none"><i class="icon an an-times"></i></div>
+                     <div class="sidebar_tags">
+                        <!-- Categories -->
+                        <div class="sidebar_widget filterBox categories filter-widget">
+                           <div class="widget-title">
+                              <h2>Categories</h2>
+                           </div>
+                           <div class="widget-content">
+                              <div class='animated bounceInDown navi'>
+                                 <?php if(!empty($parentcategories)): ?>
+                                 <ul>
+                                    <?php foreach($parentcategories as $cata): ?>
+                                    <li class='<?php if($this->select->get_sub_parent_categories_by_id($cata->cat_id,'is_menu')){echo 'sub-menu';}else{ echo '';} ?>'>
+                                       <a href='<?php if($this->select->get_sub_parent_categories_by_id($cata->cat_id,'is_menu')){echo 'javascript:void(0)';}else{ ?> <?= base_url('products/'.$cata->cat_slug); ?> <?php } ?>'><?= $cata->cat_name ?><?php if($this->select->get_sub_parent_categories_by_id($cata->cat_id,'is_menu')): ?>
+                                          <div class='fa fa-caret-down right'></div> <?php endif; ?>
+                                       </a>
+                                       <ul>
+                                          <?php if($this->select->get_sub_parent_categories_by_id($cata->cat_id,'is_menu')){ ?>
+                                          <li><a href='<?= base_url('products/'.$cata->cat_slug); ?>'><?= $cata->cat_name ?></a></li>
+                                          <?php } ?>
+                                          <?php 
+                                             if($this->select->get_sub_parent_categories_by_id($cata->cat_id,'is_menu')){ 
+                                                $res = $this->select->get_sub_parent_categories_by_id($cata->cat_id,'is_menu');
+                                                   foreach($res as $r){
+                                          ?>
+                                          <li class='<?php if($this->select->get_sub_categories_by_id($r->cat_id,'is_menu')){echo 'sub-menu';}else{ echo '';} ?>'>
+                                             <a href='<?php if($this->select->get_sub_categories_by_id($r->cat_id,'is_menu')){echo 'javascript:void(0)';}else{ ?> <?= base_url('products/'.$r->cat_slug); ?> <?php } ?>'><?= $r->cat_name ?><?php if($this->select->get_sub_categories_by_id($r->cat_id,'is_menu')): ?>
+                                                <div class='fa fa-caret-down right'></div><?php endif; ?>
+                                             </a>
+                                             <ul>
+                                                <li><a href='<?= base_url('products/'.$r->cat_slug); ?>'><?= $r->cat_name ?></a></li>
+                                                <?php 
+                                                   $res_sub = $this->select->get_sub_categories_by_id($r->cat_id,'is_menu');
+                                                   foreach($res_sub as $sup){
+                                                ?>
+                                                <li><a href='<?= base_url('products/'.$sup->cat_slug); ?>'><?= $sup->cat_name ?></a></li>
+                                                <?php } ?>
+                                             </ul>
+                                          </li>
+                                          <?php } } ?>
+                                       </ul>
+                                    </li>
+                                    <?php endforeach; ?>
+                                 </ul>
+                                 <?php endif; ?>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
                   <!-- End Sidebar -->
                   <!-- Main Content -->
-                  <div class="col-12 col-sm-12 col-md-12 col-lg-12 main-col">
+                  <div class="col-12 col-sm-12 col-md-12 col-lg-9 main-col">
                      <div class="productList">
                         <!-- Toolbar -->
                         <div class="toolbar">
                            <div class="filters-toolbar-wrapper">
                               <div class="row">
-                                 <div class="col-4 col-md-4 col-lg-4 filters-toolbar__item collection-view-as d-flex justify-content-Start align-items-center">
-                                    <button type="button" class="btn-filter d-block d-md-block d-lg-none icon an an-sliders-h" data-bs-toggle="tooltip" data-bs-placement="top" title="Filters"></button>
-                                    <a href="#" class="change-view change-view--active" data-bs-toggle="tooltip" data-bs-placement="top" title="Grid View">
-                                    <i class="icon an an-table"></i>
-                                    </a>
-                                    <!-- <a href="#" class="change-view" data-bs-toggle="tooltip" data-bs-placement="top" title="List View">
-                                    <i class="icon an an-th-list"></i> -->
-                                    </a>
+                                 <div class="col-4 col-md-4 col-lg-4 filters-toolbar__item collection-view-as d-flex justify-content-Start align-items-center"> 
                                  </div>
                                  <div class="col-4 col-md-4 col-lg-4 text-center filters-toolbar__item filters-toolbar__item--count d-flex justify-content-center align-items-center">
-                                    <!-- <span class="filters-toolbar__product-count">Showing: 22</span> -->
+                                    <span class="filters-toolbar__product-count">Showing: <span id="shownum"></span></span>
                                  </div>
-                                 <!-- <div class="col-4 col-md-4 col-lg-4 d-flex justify-content-end align-items-center text-end">
-                                    <div class="filters-toolbar__item">
-                                       <label for="SortBy" class="hidden">Sort</label>
-                                       <select name="SortBy" id="SortBy" class="filters-toolbar__input filters-toolbar__input--sort">
-                                          <option value="title-ascending" selected="selected">Sort</option>
-                                          <option>Best Selling</option>
-                                          <option>Alphabetically, A-Z</option>
-                                          <option>Alphabetically, Z-A</option>
-                                          <option>Price, low to high</option>
-                                          <option>Price, high to low</option>
-                                       </select>
-                                       <input class="collection-header__default-sort" type="hidden" value="manual">
-                                    </div>
-                                 </div> -->
                               </div>
                            </div>
                         </div>
@@ -59,7 +136,7 @@
                                  if(!empty($allproducts)): 
                                  foreach($allproducts as $product):
                               ?>
-                              <div class="col-4 col-sm-3 col-md-3 col-lg-4 item">
+                              <div class="col-4 col-sm-3 col-md-3 col-lg-4 item checknum">
                                  <!-- Product Image -->
                                  <div class="product-image">
                                     <!-- Product Image -->
@@ -71,7 +148,7 @@
                                        <img class="hover blur-up lazyload" data-src="<?= get_product_image_by_hovar($product);?>" src="<?= get_product_image_by_hovar($product);?>" alt="image" title="product" />
                                        <!-- End Hover Image -->
                                        <!-- Product Label -->
-                                       <!-- <div class="product-labels rectangular"><span class="lbl on-sale">Exclusive</span></div> -->
+                                       <?php if(is_bestseller($product->id)): ?><div class="product-labels rectangular"><span class="lbl on-sale">Bestseller</span></div><?php endif; ?>
                                        <!-- End Product Label -->
                                     </a>
                                     <!-- End Product Image -->
@@ -110,11 +187,13 @@
                         <!-- End Grid Product -->
                      </div>
                      <!-- Infinit Pagination -->
+                     <?php if(!empty($allproducts)): ?>
                      <div class="infinitpaginOuter">
                         <div class="infinitpagin-three">  
                            <a href="#" class="btn loadMoreThree">Load More</a>
                         </div>
                      </div>
+                     <?php endif ?>
                      <!-- End Infinit Pagination -->
                   </div>
                   <!-- End Main Content -->
@@ -122,3 +201,9 @@
             </div>
          </div>
          <!-- End Body Content -->
+         <script>
+            document.addEventListener("DOMContentLoaded", () => {
+            var n = $('.checknum').length;
+            $('#shownum').html(n);
+            });
+         </script>

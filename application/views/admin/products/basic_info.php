@@ -90,23 +90,23 @@
                            <textarea name="short_desc"  class="form-control editor" rows="5"></textarea>
                         </div>
                      </div>
-                        <div class="mb-3">
+                     <div class="mb-3">
                         <label class="form-label"> Description</label>
                         <div>
                            <textarea name="description"  class="form-control editor" rows="5"></textarea>
                         </div>
                      </div>
-                      <div class="mb-3">
+                     <!-- <div class="mb-3">
                         <label class="form-label"> Specification</label>
                         <div>
                            <textarea name="product_specification"  class="form-control editor" rows="5"></textarea>
                         </div>
-                     </div>
-                                                </div>
+                     </div> -->
+                  </div>
                                              
-                                            </div>
-                                    </div>
-                                </div>
+               </div>
+            </div>
+         </div>
 
                
 
@@ -167,13 +167,13 @@
                         <input type="hidden" name="is_visible" value="0" />
                         <?php }?>
                      <div class="mb-3">
-                        <label class="form-label mb-3 d-flex">Is Featured?</label>
+                        <label class="form-label mb-3 d-flex">Is Bestseller?</label>
                         <div class="form-check form-check-inline">
-                           <input type="radio" id="pcy" name="is_featured" class="form-check-input" value="1" checked>
+                           <input type="radio" id="pcy" name="is_featured" class="form-check-input" value="1">
                            <label class="form-check-label" for="pcy">Yes</label>
                         </div>
                         <div class="form-check form-check-inline">
-                           <input type="radio" id="pcn" name="is_featured" class="form-check-input" value="0">
+                           <input type="radio" id="pcn" name="is_featured" class="form-check-input" value="0" checked>
                            <label class="form-check-label" for="pcn">No</label>
                         </div>
                      </div> 

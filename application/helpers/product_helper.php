@@ -812,4 +812,15 @@ if (!function_exists('get_default_currency')) {
         return select_value_by_id('currencies','code',$ci->payment_settings->default_product_currency,'hex');
     }
 }
+
+
+if (!function_exists('is_bestseller')) {
+    function is_bestseller($id){
+        $ci =& get_instance();
+        $ci->db->where('id', $id);
+        $ci->db->where('is_featured', 1);
+		$query = $ci->db->get('products');
+		if( $query->num_rows() > 0 ){ return TRUE; } else { return FALSE; }
+    }
+}
 ?>

@@ -76,7 +76,13 @@
       <script src="<?= base_url('assets/site/js/plugins.js') ?>"></script>
       <!-- Main JS -->
       <script src="<?= base_url('assets/site/js/main.js') ?>"></script>
-
+      <script>
+         $('.sub-menu ul').hide();
+      $(".sub-menu a").click(function () {
+         $(this).parent(".sub-menu").children("ul").slideToggle("100");
+         $(this).find(".right").toggleClass("fa-caret-up fa-caret-down");
+      });
+      </script>
       <script type="text/javascript">
          $('.mainslider').slick({
          infinite: true,

@@ -1130,6 +1130,7 @@
     load_more_two();
 
     function load_more_three() {
+        console.log($(".product-three-load-more .item").length);
         $(".product-three-load-more .item").slice(0, 15).show();
         $(".loadMoreThree").on('click', function (e) {
             e.preventDefault();

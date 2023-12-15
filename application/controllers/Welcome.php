@@ -67,6 +67,8 @@ public function __construct()
         $data['newproducts'] = $this->select->getProducts($pconditions);
 
 		/////////////////////////////////////////////////
+		$pconditions['start'] = 0;
+		$pconditions['limit'] = 8;
 		$fconditions['filter']['is_visible'] = 1;
         $fconditions['filter']['is_draft'] = 0;
 		$fconditions['filter']['is_featured'] = 1;
