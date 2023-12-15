@@ -38,11 +38,11 @@
                                   About Image
                               </div>
                               <div class="card-body text-center">
-                                  <div class="mb-0">
+                                  <div class="mb-3">
+                                      <input type="file" name="file" class="filestyle" id="imgInp" data-input="false" >
                                       <img class="img-thumbnail rounded me-2" id="blah" alt="" width="800" src="" data-holder-rendered="true" style="display: none;">
                                   </div>
-                                  <div class="mb-0">
-                                      <input type="file" name="file" class="filestyle" id="imgInp" data-input="false" data-buttonname="btn-secondary">
+                                  <div class="mb-0" data-buttonname="btn-secondary">
                                       <input type="hidden" name="media_id" id="media_id" />
                                       <a href="javascript:;" id="openLibrary">or Choose From Library</a>
                                   </div> 

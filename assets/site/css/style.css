@@ -2887,6 +2887,7 @@ color: #555555;
 font-size: 16px;
 font-weight: 500;
 text-align: left;
+display:none;
 }
 .product-price .old-price {
 color: #555555;

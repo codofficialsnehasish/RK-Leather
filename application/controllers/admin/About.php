@@ -52,9 +52,19 @@ class About extends Core_Controller {
 			//$this->session->set_flashdata('form_data', $this->auth_model->input_values());
 			redirect($this->agent->referrer());
 		}else{
+			if($this->input->post('main_about', true) == 1){
+				$data = $this->select->select_table($this->table_name,'id','asc');
+				foreach($data as $d){
+                    $gg = array(
+                        'main_about'=>0
+                    );
+                    $this->edit_model->edit($gg,$d->id,'id','about');
+				}
+			}
 			$data1=array(
 				'about_header'=>$this->input->post('name', true),
 				'about_content'=>$this->input->post('desc', true),
+				'main_about'=>$this->input->post('main_about', true),
 				'visiblity'=>$this->input->post('is_visible', true)
 			);
             if(is_uploaded_file($_FILES['file']['tmp_name'])) {
@@ -144,9 +154,19 @@ class About extends Core_Controller {
 			//$this->session->set_flashdata('form_data', $this->auth_model->input_values());
 			redirect($this->agent->referrer());
 		}else{
+			if($this->input->post('main_about', true) == 1){
+				$data = $this->select->select_table($this->table_name,'id','asc');
+				foreach($data as $d){
+                    $gg = array(
+                        'main_about'=>0
+                    );
+                    $this->edit_model->edit($gg,$d->id,'id','about');
+				}
+			}
 			$data=array(
                 'about_header'=>$this->input->post('name', true),
 				'about_content'=>$this->input->post('desc', true),
+				'main_about'=>$this->input->post('main_about', true),
 				'visiblity'=>$this->input->post('is_visible', true)
 			);
 			// if(is_uploaded_file($_FILES['file']['tmp_name'])) 

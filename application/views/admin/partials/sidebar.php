@@ -97,7 +97,7 @@
                 </li> -->
                 <li class="<?= active_menu('about');?>">
                     <a href="<?= base_url('admin/about/')?>" class="waves-effect <?= active_link('about');?>">
-                         <i class="ti-email"></i>
+                         <i class="fas fa-snowman"></i>
                         
                         <span>About Us</span>
                     </a>
@@ -114,6 +114,12 @@
                          <i class="ti-image"></i>
                         
                         <span>Slider</span>
+                    </a>
+                </li> 
+                <li class="<?= active_menu('video');?>">
+                    <a href="<?= base_url('admin/video/')?>" class="waves-effect <?= active_link('video');?>">
+                         <i class="fas fa-video"></i>
+                        <span>Video Section</span>
                     </a>
                 </li> 
                

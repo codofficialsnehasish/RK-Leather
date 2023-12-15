@@ -138,6 +138,7 @@ $route['products/(:any)']='products/products/$1';
 $route['products/(:any)/(:any)']='products/products/$1';
 }
 $route['product/(:any)']='products/details/$1';
+$route['search']='products/search';
 /*
 */
 

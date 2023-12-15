@@ -109,7 +109,7 @@
                   <!-- Tabs -->
                   <ul class="product-tabs d-none d-md-block">
                      <li class="active" rel="tab1"><a class="tablink">Product Details</a></li>
-                     <li rel="tab4"><a class="tablink">Shipping &amp; Returns</a></li>
+                     <!-- <li rel="tab4"><a class="tablink">Shipping &amp; Returns</a></li> -->
                   </ul>
                   <!-- End Tabs -->
                   <!-- Tabs Container -->
@@ -123,14 +123,14 @@
                      </div>
                      <!-- End Tabs Content One -->
                      <!-- Tabs Content Four -->
-                     <h3 class="acor-ttl d-block d-md-none" rel="tab4">Shipping &amp; Returns</h3>
+                     <!-- <h3 class="acor-ttl d-block d-md-none" rel="tab4">Shipping &amp; Returns</h3>
                      <div id="tab4" class="tab-content py-3 py-md-0">
                         <h4>Returns Policy</h4>
                         <p class="mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eros justo, accumsan non dui sit amet. Phasellus semper volutpat mi sed imperdiet. Ut odio lectus, vulputate non ex non, mattis sollicitudin purus. Mauris consequat justo a enim interdum, in consequat dolor accumsan. Nulla iaculis diam purus, ut vehicula leo efficitur at.</p>
                         <p>Interdum et malesuada fames ac ante ipsum primis in faucibus. In blandit nunc enim, sit amet pharetra erat aliquet ac.</p>
                         <h4>Shipping</h4>
                         <p>Pellentesque ultrices ut sem sit amet lacinia. Sed nisi dui, ultrices ut turpis pulvinar. Sed fringilla ex eget lorem consectetur, consectetur blandit lacus varius. Duis vel scelerisque elit, et vestibulum metus.  Integer sit amet tincidunt tortor. Ut lacinia ullamcorper massa, a fermentum arcu vehicula ut. Ut efficitur faucibus dui Nullam tristique dolor eget turpis consequat varius. Quisque a interdum augue. Nam ut nibh mauris.</p>
-                     </div>
+                     </div> -->
                      <!-- End Tabs Content Four -->
                   </div>
                   <!-- End Tabs Container -->

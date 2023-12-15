@@ -36,7 +36,6 @@
                                                     <th>Sl No.</th>
                                                     <th>Image</th>
                                                     <th>Visibility</th>
-                                                    <!-- <th>Subject</th> -->
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -51,7 +50,7 @@
                                                         <a href="<?= admin_url('about/edit_image/'.$img->id);?>" class="btn btn-primary btn-sm edit" data-bs-placement="top" title="Edit this Item">
                                                             <i class="fas fa-pencil-alt" data-bs-toggle="tooltip" data-bs-placement="top" title="View Message" title="View Message"></i>
                                                         </a>
-                                                        <a class="btn btn-danger btn-sm edit" onclick="return confirm('Are you sure?')" href="<?= base_url('admin/about/img_delete/'.$image[0]->id); ?>" data-bs-toggle="tooltip" data-bs-placement="top" title="Remove this Item" id="<?= $img->id;?>">
+                                                        <a class="btn btn-danger btn-sm edit" onclick="return confirm('Are you sure?')" href="<?= base_url('admin/about/img_delete/'.$img->id); ?>" data-bs-toggle="tooltip" data-bs-placement="top" title="Remove this Item" id="<?= $img->id;?>">
                                                             <i class="fas fa-trash-alt" title="Remove"></i>
                                                         </a>
                                                     </td>
@@ -78,7 +77,7 @@
                                                     <th>Header</th>
                                                     <th>Content</th>
                                                     <th>Visibility</th>
-                                                    <!-- <th>Subject</th> -->
+                                                    <th>Main About</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -92,6 +91,7 @@
                                                     <td><?= $item->about_header;?></td>
                                                     <td><?= $item->about_content;?></td>
                                                     <td><?= check_visibility($item->visiblity);?> </td>
+                                                    <td><?= check_visibility($item->main_about);?> </td>
                                                     <td>
                                                         <a href="<?= admin_url('about/edit/'.$item->id);?>" class="btn btn-primary btn-sm edit" data-bs-placement="top" title="Edit this Item">
                                                             <i class="fas fa-pencil-alt" data-bs-toggle="tooltip" data-bs-placement="top" title="View Message" title="View Message"></i>

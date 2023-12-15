@@ -117,7 +117,7 @@ public function __construct()
 			'where' => array('is_visible'=>1,'is_special'=>1)
 		);
 		$data['specialcategories'] = $this->select->getResult($specialconditions1);
-
+		$data['allitems']=$this->select->select_single_data('video','id',1);
 		$this->load->view('template/home',$data);
 		$this->load->view('partials/footer');
 	}

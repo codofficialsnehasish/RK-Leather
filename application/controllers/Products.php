@@ -53,14 +53,15 @@ class Products extends Core_Controller {
 	public function products()
     {
         $slug=$this->uri->segment(2);
+
         $cat_id="";
         $data = array();
 		if($slug!=''){
 			$cat_id=get_id_by_name('categories','cat_slug',$slug,'cat_id');	
 		}
 		if($cat_id!=''){
-			$conditions['filter']['category_id'] = $cat_id;
-            $conditions1['filter']['category_id'] = $cat_id;
+			$conditions['filter']['category_id'] = $cat_id == '-'? null:$cat_id;
+            $conditions1['filter']['category_id'] = $cat_id == '-'? null:$cat_id;
 		}
     	//echo $cat_id;die;
         $data['title'] = select_value_by_id('categories','cat_id',$cat_id,'cat_name');
@@ -93,7 +94,7 @@ class Products extends Core_Controller {
         }
 
 		 $conditions1['tblName'] = 'products';
-		 // print_r($conditions1);
+		//  print_r($conditions1);
          // print_r($pagination);
          $data['allproducts'] = $this->select->getProducts($conditions1);
          $cagtegoriesconditions = array(
@@ -293,4 +294,64 @@ class Products extends Core_Controller {
     }
 
 
+    public function search()
+    {
+        $slug=$this->input->get('name', true);
+        // $slug='wallets';
+        $cat_id="";
+        $data = array();
+		if($slug!=''){
+            $cat_id=get_id_by_name('categories','cat_slug',$slug,'cat_id');	
+		}
+		if($cat_id!=''){
+			$conditions['filter']['category_id'] = $cat_id == '-'? null:$cat_id;
+            $conditions1['filter']['category_id'] = $cat_id == '-'? null:$cat_id;
+		}
+    	//echo $cat_id;die;
+        $data['title'] = select_value_by_id('categories','cat_id',$cat_id,'cat_name');
+		$conditions['returnType'] = 'count';
+		$conditions['tblName'] = 'products';
+        // print_r($conditions1);
+		$totalRec = $this->select->getProducts($conditions);
+		$link = base_url("category/".$slug.'/');
+        $pagination = $this->paginate($link, $totalRec, $this->perPage);
+		$conditions1['start'] = $pagination['offset'];
+		$conditions1['limit'] = $pagination['per_page'];
+
+        if($this->input->get('sort_by')!=''){
+            if($this->input->get('sort_by')=='low_to_high'){
+                $conditions1['order_by'] = 'price';
+                $conditions1['order'] = 'ASC';
+            }
+            if($this->input->get('sort_by')=='high_to_low'){
+                $conditions1['order_by'] = 'price';
+                $conditions1['order'] = 'DESC';
+            }
+            if($this->input->get('sort_by')=='latest'){
+                $conditions1['order_by'] = 'id';
+                $conditions1['order'] = 'DESC';
+            }
+
+        }else{
+            $conditions1['order_by'] = 'id';
+            $conditions1['order'] = 'ASC';
+        }
+
+		 $conditions1['tblName'] = 'products';
+		 // print_r($conditions1);
+         // print_r($pagination);
+         $data['allproducts'] = $this->select->getProducts($conditions1);
+         $cagtegoriesconditions = array(
+			'tblName' =>'categories',
+			'where' => array('is_visible'=>1,'is_special'=>0)
+		);
+        $data['cagtegories']= $this->select->getResult($cagtegoriesconditions); //$this->select->select_table('categories','cat_id','asc');
+        $data['parentcategories'] = $this->select->get_parent_categories();
+        $this->load->view('partials/header', $data);
+        $this->load->view('products/listing', $data);
+        $this->load->view('partials/footer');
+    }
+
 }
+
+

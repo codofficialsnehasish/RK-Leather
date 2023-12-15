@@ -71,18 +71,18 @@
                            <label class="form-check-label" for="customRadioInline2">Hide</label>
                         </div>
                      </div>
-                     <!-- <div class="mb-3">
-                        <label class="form-label mb-3 d-flex">Image Visiblity</label>
+                     <div class="mb-3">
+                        <label class="form-label mb-3 d-flex">Main About</label>
                         <div class="form-check form-check-inline">
-                           <input type="radio" id="customRadioInline1" name="img_is_visible" class="form-check-input" value="1" checked>
+                           <input type="radio" id="customRadioInline1" name="main_about" class="form-check-input" value="1" checked>
                            <label class="form-check-label" for="customRadioInline1">Show</label>
                         </div>
                         <div class="form-check form-check-inline">
-                           <input type="radio" id="customRadioInline2" name="img_is_visible" class="form-check-input" value="0">
+                           <input type="radio" id="customRadioInline2" name="main_about" class="form-check-input" value="0">
                            <label class="form-check-label" for="customRadioInline2">Hide</label>
                         </div>
-                        <p style="color:red;font-weight:700;">** Only one image can visible. If you choose show then rest of the image will be hide **</p>
-                     </div> -->
+                        <p style="color:red;font-weight:700;">* Only one can choose as main *</p>
+                     </div>
 
                      <div class="mb-0">
                         <div>

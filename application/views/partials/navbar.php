@@ -34,7 +34,7 @@ $categoriesMenu=$this->select->get_parent_categories();
                                  <li class="lvl1 parent dropdown">
                                     <a href="<?= base_url(''); ?>">Home<i class="an an-angle-down"></i></a>
                                  </li>
-                                 <?php if($menucategories){ foreach($menucategories as $cata){ ?>
+                                 <?php $inc = 1; if($menucategories){ foreach($menucategories as $cata){ ?>
                                  <li class="lvl1 parent <?php if($this->select->get_sub_parent_categories_by_id($cata->cat_id,'is_home')){echo 'megamenu';}else{ echo 'dropdown';} ?>">
                                     <a href="<?= base_url('products/'.$cata->cat_slug); ?>"><?= $cata->cat_name ?></a>
                                     <?php if($this->select->get_sub_parent_categories_by_id($cata->cat_id,'is_home')){ ?>
@@ -43,8 +43,10 @@ $categoriesMenu=$this->select->get_parent_categories();
                                           <?php 
                                              $res = $this->select->get_sub_parent_categories_by_id($cata->cat_id,'is_home');
                                              foreach($res as $r){
+                                                if($inc >= 6){break;}
+
                                           ?>
-                                          <li class="lvl-1 col-md-3 col-lg-3">
+                                          <li class="lvl-1 col-md-2 col-lg-2">
                                              <a href="<?= base_url('products/'.$r->cat_slug); ?>" class="site-nav lvl-1 menu-title"><?= $r->cat_name; ?></a>
                                              <?php if($this->select->get_sub_categories_by_id($r->cat_id,'is_home')){ ?>
                                              <ul class="subLinks">
@@ -57,8 +59,8 @@ $categoriesMenu=$this->select->get_parent_categories();
                                              </ul>
                                              <?php } ?>
                                           </li>
-                                          <?php } ?>
-                                          <li class="lvl-1 col-md-3 col-lg-3 text-center">
+                                          <?php $inc++; } ?>
+                                          <li class="lvl-1 col-md-2 col-lg-2 text-center">
                                              <a href="#"><img src="<?= get_image($cata->media_id) ?>" width="190" alt="image"/></a>
                                           </li>
                                        </ul>

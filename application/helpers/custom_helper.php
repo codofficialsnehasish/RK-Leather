@@ -2106,10 +2106,23 @@ if (!function_exists('numberTowords')) {
    }
    }
 
-   if (!function_exists('instagram')) {
+
+   if (!function_exists('get_main_about')) {
+    function get_main_about()
+    {
+       $ci =& get_instance();
+       $ci->db->select('*');
+       $ci->db->from('about');
+       $ci->db->where('main_about =',1);
+       $query = $ci->db->get(); 
+       return $query->result();
+    }
+}
+
+if (!function_exists('instagram')) {
     function instagram( $AccessToken , $feed = null ){
         $timestamp = mktime(date('H'), date('i'), 0, date('n'), date('j') - 1, date('Y'));
-        $AccessToken = 'IGQWRNYjZAXR1RmU1F2dU52S1lyV2tWdEIzWUdQRFNUSkkzSUFoSDNiendHdGVhMVJsdnVHTGJ0LWVnRlhQM2NKZAlh1S1daVXZAwSjBiRkZAnSzhzTGd2YkVuSnFJMW1jY3JnNjhfS2FyNm5QeGNoUDFRUlRLMHZA4ZAm8ZD';
+        $AccessToken = 'IGQWRNbmVmSWJCY1ZAidk5laG90MUNKdW9FN2NMaF84QkwxVUxabE5OTTlWOVVQQm9oSy1wc3dTTDdnMkFNTlV4eFJZAXzgxNy1wSTR1Wi00UVZAaVXVjT1BpUzQ5R3lKWlJHQmw2cVBQeUFBOXpwTkU1ZAzRUR3BzX0kZD';
         $instagram_user_id = '6909482402420405';
         $url = 'https://graph.instagram.com/'.$instagram_user_id.'/media?access_token=' . $AccessToken;
         $counter = 0;

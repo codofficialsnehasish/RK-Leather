@@ -61,26 +61,6 @@
                </div>
             </div>
             <?php } endif ?>
-            <!-- <div class="col-12 col-sm-6 col-md-4 item">
-               <div class="collection-grid-item">
-                  <img class="blur-up lazyload" data-src="<?= base_url('assets/site/images/collection/home2-collection2.jpg') ?>" src="<?= base_url('assets/site/images/collection/home2-collection2.jpg') ?>" alt="collection" title="" nosave />
-                  <a href="#" class="collection-grid-item__title-wrapper">
-                     <div class="title-wrapper">
-                        <h3 class="collection-grid-item__title fw-bold">Wallet & Belt</h3>
-                     </div>
-                  </a>
-               </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 item">
-               <div class="collection-grid-item">
-                  <img class="blur-up lazyload" data-src="<?= base_url('assets/site/images/collection/home2-collection3.jpg') ?>" src="<?= base_url('assets/site/images/collection/home2-collection3.jpg') ?>" alt="collection" title="" nosave />
-                  <a href="#" class="collection-grid-item__title-wrapper">
-                     <div class="title-wrapper">
-                        <h3 class="collection-grid-item__title fw-bold">Jacket</h3>
-                     </div>
-                  </a>
-               </div>
-            </div> -->
          </div>
          <!-- End Collection Box -->
       </div>
@@ -157,16 +137,16 @@
             <div class="col-12 col-sm-12 col-md-12 col-lg-5 p-0 mb-lg-0 mb-sm-4 mb-md-4 mb-4">
                <!--  <img class="blur-up lazyloaded" data-src="assets/images/collection/home2-collection3.jpg" src="assets/images/collection/home2-collection3.jpg" alt="About Us" title=""> -->
                <!-- <iframe src="https://www.youtube.com/embed/0p-9ojyjUmw?si=u7j1jsvQ-FmxvCge" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
-               <video width="470" height="255" poster="<?= base_url('assets/site/images/video_placeholder.png') ?>" controls>
-                  <source src="<?= base_url('assets/site/images/trailer.mp4') ?>" type="video/mp4">
+               <video width="470" height="255" poster="<?= get_image($allitems[0]->thumbnail); ?>" controls>
+                  <source src="<?= base_url($allitems[0]->video_path.$allitems[0]->video_name) ?>" type="video/mp4">
                </video>
             </div>
             <div class="col-12 col-sm-12 col-md-12 col-lg-7 d-flex justify-content-center align-items-center flex-wrap px-5 mb-md-5 mb-lg-0 mb-sm-5 mb-5">
                <div class="text-center font15 px-0 px-sm-5 px-md-5 px-lg-5">
                   <div class="texr_warp">
-                     <h2>RK OVERSEAS</h2>
-                     <p>RK OVERSEAS was established in the year of 2017. We would like to introduce our company as Manufacturer and Exporter of all kinds of Leather Bags and Accessories. Our comprehensive collection of leather products includes leather wallets for men, ladies purses card holders, handbags, executive bags, leather files and folders corporate gift items etc</p>
-                     <a href="#" class="btn">Contact Now</a>
+                     <h2><?= $this->settings->application_name?></h2>
+                     <p><?= strip_tags(get_main_about()[0]->about_content); ?></p>
+                     <a href="<?= base_url('/contact_us') ?>" class="btn">Contact Now</a>
                   </div>
                </div>
             </div>
@@ -254,7 +234,7 @@
       </div>
 
       <!-- Instagram -->
-      <div class="section home-instagram no-pb-section">
+      <!-- <div class="section home-instagram no-pb-section">
                <div class="container-fluid">
                   <div class="row">
                      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
@@ -263,37 +243,34 @@
                         </div>
                      </div>
                   </div>
-                  <!-- Instagram Slider -->
                   <div class="instagram-section instagram-slider">
                      <?php
-                       $instagramData = instagram('instagram',20);
+                     //   $instagramData = instagram('instagram',20);
                          
                       
-                        foreach($instagramData as $insta){
+                     //    foreach($instagramData as $insta){
                              
-                            $username = isset($insta->username) ? $insta->username : "";
-                            $caption = isset($insta->caption) ? $insta->caption : "";
-                            $media_url = isset($insta->media_url) ? $insta->media_url : "";
-                            $permalink = isset($insta->permalink) ? $insta->permalink : "";
-                            $media_type = isset($insta->media_type) ? $insta->media_type : "";
+                     //        $username = isset($insta->username) ? $insta->username : "";
+                     //        $caption = isset($insta->caption) ? $insta->caption : "";
+                     //        $media_url = isset($insta->media_url) ? $insta->media_url : "";
+                     //        $permalink = isset($insta->permalink) ? $insta->permalink : "";
+                     //        $media_type = isset($insta->media_type) ? $insta->media_type : "";
                             ?>
                       
                      <div class="instagram-item">
-                        <a href="<?= $permalink; ?>" target="_blank">
-                            <?php if($media_type == 'IMAGE'):?>
-                            <img class="blur-up lazyload" src="<?= $media_url ?>" data-src="<?= $media_url ?>" alt="image" title="" />
-                            <?php endif;?>
+                        <a href="<= $permalink; ?>" target="_blank">
+                            <?php //if($media_type == 'IMAGE'):?>
+                            <img class="blur-up lazyload" src="<= $media_url ?>" data-src="<= $media_url ?>" alt="image" title="" />
+                            <?php// endif;?>
                         <span class="inst-icon"><i class="icon an an-instagram"></i></span>
                         </a>
                      </div>
-                     <?php }?>
+                     <?php //}?>
                   </div>
-                  <!-- End Instagram Slider -->
                   <div class="followus text-center mt-3 d-none">
                      <a href="#" target="_blank" class="btn">View Gallery</a>
                   </div>
                </div>
             </div>
-            <!-- End Instagram -->
          </div>
-         <!-- End Body Content -->
+         End Body Content -->

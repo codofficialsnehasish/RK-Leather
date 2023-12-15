@@ -71,6 +71,18 @@
                            <label class="form-check-label" for="customRadioInline2">Hide</label>
                         </div>
                      </div>
+                     <div class="mb-3">
+                        <label class="form-label mb-3 d-flex">Main About</label>
+                        <div class="form-check form-check-inline">
+                           <input type="radio" id="customRadioInline1" name="main_about" class="form-check-input" value="1" <?= check_uncheck($item->main_about,1);?>>
+                           <label class="form-check-label" for="customRadioInline1">Show</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                           <input type="radio" id="customRadioInline2" name="main_about" class="form-check-input" value="0" <?= check_uncheck($item->main_about,0);?>>
+                           <label class="form-check-label" for="customRadioInline2">Hide</label>
+                        </div>
+                        <p style="color:red;font-weight:700;">* Only one can choose as main *</p>
+                     </div>
                     
                     
                      <div class="mb-0">

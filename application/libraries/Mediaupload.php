@@ -102,6 +102,56 @@ public function doUploadProductImages($file,$product_id,$file_id){
 
 }
 
+public function doUploadvideodata($file,$id,$mid){
+    if(!empty($_FILES)){
+        // File upload configuration
+        $basefolder='./uploads/media/';
+        $year = date("Y");   
+        $month = date("m");   
+        $filename = $basefolder.$year;   
+        $filename2 = $filename."/".$month;
+        if(!file_exists($filename)){
+                mkdir($filename,0777);
+                fopen($filename."/index.html", "w");
+            }
+        
+        if(!file_exists($filename2)){
+                mkdir($filename2,0777);
+                fopen($filename2."/index.html", "w");
+            }
+        
+        $uploadPath = $filename2.'/';
+        $config['upload_path'] = $uploadPath;
+        $config['allowed_types'] = 'mp4';
+        
+        // Load and initialize upload library
+        $this->_CI->load->library('upload', $config);
+        $this->_CI->upload->initialize($config);
+        
+        // Upload file to the server
+        if($this->_CI->upload->do_upload($file)){
+            $fileData = $this->_CI->upload->data();
+            $uploadData['video_name'] = $fileData['file_name'];
+            $uploadData['uploaded_on'] = date("Y-m-d H:i:s");
+            $uploadData['video_path'] = substr($uploadPath, 2);
+            // $uploadData['id'] = $id;
+            $uploadData['thumbnail'] = $mid;
+            // $uploadData['file_id'] = $file_id;
+            
+            // Insert files info into the database
+
+          
+          //  $this->_CI->insert_model->insert_data($uploadData,'');
+            return $this->_CI->edit_model->edit($uploadData,$id,'id','video');
+            // return $insert;
+             
+        }
+    }else{
+        return 0;
+    }
+
+}
+
 
 public function doUploadFile($file){
     if(!empty($_FILES)){

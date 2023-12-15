@@ -7,13 +7,7 @@
                      <div class="row">
                         <div class="col-12 col-sm-12 col-md-4 col-lg-4 contact-box">
                            <img src="<?= get_email_logo() ?>" alt="Diva Multipurpose Html Template" title="Diva Multipurpose Html Template" width="130">
-                           <p>RK OVERSEAS was established in the year of 2017. We would like to
-                              introduce our company as Manufacturer and Exporter of all kinds
-                              of Leather Bags and Accessories. Our comprehensive collection 
-                              of leather products includes leather wallets for men, ladies purses
-                              card holders, handbags, executive bags, leather files and folders
-                              corporate gift items etc
-                           </p>
+                           <p><?= strip_tags(get_main_about()[0]->about_content); ?></p>
                         </div>
                         <div class="col-12 col-sm-12 col-md-3 col-lg-3 footer-links">
                            <h4 class="h4">Quick Links</h4>
@@ -21,21 +15,19 @@
                               <li><a href="<?= base_url(' ') ?>">Home</a></li>
                               <li><a href="<?= base_url('/about_us') ?>">About us</a></li>
                               <li><a href="<?= base_url('/contact_us') ?>">Contact Us</a></li>
-                              <li><a href="#">Shipping</a></li>
-                              <li><a href="#">Return Policy</a></li>
                               <li><a href="#">Privacy Policy</a></li>
                            </ul>
                         </div>
                         <div class="col-12 col-sm-12 col-md-5 col-lg-5 newsletter">
                            <div class="display-table">
                               <div class="display-table-cell footer-newsletter">
-                                 <form action="#" method="post">
+                                 <form action=" " method="post">
                                     <label class="h4">Newsletter</label>
                                     <p>sign up for newsletter to know our latest news and offers.</p>
                                     <div class="input-group">
                                        <input type="email" class="input-group__field newsletter__input" name="EMAIL" value="" placeholder="Email address" required="">
                                        <span class="input-group__btn">
-                                       <button type="submit" class="btn newsletter__submit" name="commit" id="Subscribe"><span class="newsletter__submit-text--large">Sign Up</span></button>
+                                       <button type="submit" class="btn newsletter__submit" name="commit" id="Subscribe" disabled><span class="newsletter__submit-text--large">Sign Up</span></button>
                                        </span>
                                     </div>
                                  </form>
@@ -43,10 +35,10 @@
                            </div>
                            <div class="callwhatsapp">
                               <a href="https://wa.me/+919804723114" target="_blank"><img src="<?= base_url('assets/site/images/whatsapp.png') ?>" alt="site name" class="img-fluid mb-3"></a>
-                              <a href="tel:9804723114" target="_blank"><img src="<?= base_url('assets/site/images/call.png') ?>" alt="site name" class="img-fluid"></a>
+                              <!-- <a href="tel:9804723114" target="_blank"><img src="<= base_url('assets/site/images/call.png') ?>" alt="site name" class="img-fluid"></a> -->
                            </div>
                            <ul class="list--inline site-footer__social-icons social-icons">
-                              <li><a class="social-icons__link d-inline-block" href="<?= $this->settings->facebook_url;?>" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Facebook" aria-label="Facebook"><i class="icon an an-facebook"></i></a></li>
+                              <!-- <li><a class="social-icons__link d-inline-block" href="<= $this->settings->facebook_url;?>" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Facebook" aria-label="Facebook"><i class="icon an an-facebook"></i></a></li> -->
                               <li><a class="social-icons__link d-inline-block" href="<?= $this->settings->twitter_url;?>" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Twitter"><i class="icon an an-twitter"></i> <span class="icon__fallback-text">Twitter</span></a></li>
                               <li><a class="social-icons__link d-inline-block" href="<?= $this->settings->linkedin_url;?>" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Linkedin"><i class="icon an an-linkedin"></i> <span class="icon__fallback-text">Linkedin</span></a></li>
                               <li><a class="social-icons__link d-inline-block" href="<?= $this->settings->instagram_url;?>" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Instagram"><i class="icon an an-instagram"></i> <span class="icon__fallback-text">Instagram</span></a></li>
