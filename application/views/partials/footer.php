@@ -21,7 +21,12 @@
                         <div class="col-12 col-sm-12 col-md-5 col-lg-5 newsletter">
                            <div class="display-table">
                               <div class="display-table-cell footer-newsletter">
-                                 <form action=" " method="post">
+                                 <label class="h4">Contact Us</label>
+                                 <div class="col-8 col-sm-8 col-md-8 col-lg-8">
+                                    <p><strong><?= $this->settings->contact_address; ?></strong></p>
+                                    <p><strong>Phone</strong> : <?= $this->settings->contact_phone; ?> <br><strong>Email</strong>: <?= $this->settings->contact_email; ?>  <?= $this->settings->contact_email_opt; ?></p>
+                                 </div>
+                                 <!-- <form action=" " method="post">
                                     <label class="h4">Newsletter</label>
                                     <p>sign up for newsletter to know our latest news and offers.</p>
                                     <div class="input-group">
@@ -30,7 +35,7 @@
                                        <button type="submit" class="btn newsletter__submit" name="commit" id="Subscribe" disabled><span class="newsletter__submit-text--large">Sign Up</span></button>
                                        </span>
                                     </div>
-                                 </form>
+                                 </form> -->
                               </div>
                            </div>
                            <div class="callwhatsapp">

@@ -233,6 +233,71 @@
          </div>
       </div>
 
+
+      <?php if(!empty($showproducts)){?>
+      <!-- Product slider -->
+      <div class="product-rows section">
+         <div class="container">
+            <div class="row">
+               <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                  <div class="section-header text-center">
+                     <!-- <h2 class="h2">BESTSELLERS</h2> -->
+                  </div>
+                  <!-- Product List -->
+                  <div class="grid-products grid-products-hover-btn">
+                     <div class="productSlider">
+                        <?php foreach($showproducts as $top){?>
+                        <div class="col-12 item">
+                           <!-- Product Image -->
+                           <div class="product-image">
+                              <!-- product Image -->
+                              <a href="<?= base_url('product/'.$top->slug);?>">
+                                 <!-- Image -->
+                                 <img class="primary blur-up lazyload" data-src="<?= get_product_main_image($top);?>" src="<?= get_product_main_image($top);?>" alt="image" title="product" />
+                                 <!-- End Image -->
+                                 <!-- Hover Image -->
+                                 <img class="hover blur-up lazyload" data-src="<?= get_product_image_by_hovar($top);?>" src="<?= get_product_image_by_hovar($top);?>" alt="image" title="product" />
+                                 <!-- End Hover Image -->
+                                 <!-- Product Label -->
+                                 <!-- <div class="product-labels rectangular"><span class="lbl on-sale">bestsellers</span></div> -->
+                                 <div class="product-labels rectangular"><span class="lbl on-sale" style="background: #620003;">exclusive</span></div> 
+                                 <!-- End Product Label -->
+                              </a>
+                              <!-- End Product Image -->
+                              <!-- End Product Button -->
+                           </div>
+                           <!-- End Product Image -->
+                           <!-- Product Details -->
+                           <div class="product-details text-center">
+                              <!-- Product Name -->
+                              <div class="product-name">
+                                 <a href="<?= base_url('product/'.$top->slug);?>"><?= $top->title;?></a>
+                              </div>
+                              <!-- End Product Name -->
+                              <!-- Product Price -->
+                              <div class="product-price">
+                                 <!-- <span class="old-price">$800.00</span>
+                                 <span class="price">$600.00</span> -->
+                                 <?php if($top->no_discount!=1){?>
+                                    <span class="old-price"><?= select_value_by_id('currencies','id',$top->currency_code,'hex');?> <?= $top->price;?></span>
+                                 <?php }?>
+                                 <span class="price"><?= select_value_by_id('currencies','id',$top->currency_code,'hex');?> <?= $top->discounted_price;?></span>
+                              </div>
+                              <!-- End Variant -->
+                           </div>
+                           <!-- End Product Details -->
+                        </div>
+                        <?php } ?>
+                     </div>
+                  </div>
+                  <!-- End Product List -->
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- End Product slider -->
+      <?php }?>
+
       <!-- Instagram -->
       <?php if(!empty($$instagramData)){ ?>
       <div class="section home-instagram no-pb-section">

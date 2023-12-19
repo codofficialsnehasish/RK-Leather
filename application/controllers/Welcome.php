@@ -66,6 +66,17 @@ public function __construct()
 		$pconditions['tblName'] = 'products';
         $data['newproducts'] = $this->select->getProducts($pconditions);
 
+		///////////////////////////////////////////////
+
+		$pconditions['start'] = 0;
+		$pconditions['limit'] = 8;
+		$pconditions['order_by'] = 'id';
+		$pconditions['order'] = 'ASC';
+		$pconditions['filter']['is_visible'] = 1;
+        $pconditions['filter']['is_draft'] = 0;
+		$pconditions['tblName'] = 'products';
+        $data['showproducts'] = $this->select->getProducts($pconditions);
+
 		/////////////////////////////////////////////////
 		$pconditions['start'] = 0;
 		$pconditions['limit'] = 8;

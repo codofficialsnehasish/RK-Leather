@@ -39,7 +39,7 @@
                </div> -->
                <div class="language picker float-start" id="google_translate_element">
                </div>
-               <p class="phone-no float-start"><i class="icon an an-phone me-1"></i><a href="tel:+919804723114"><?= $this->settings->contact_phone; ?></a></p>
+               <p class="phone-no float-start"><i class="icon an an-phone me-1"></i><a href="tel:<?= $this->settings->contact_phone; ?>"><?= $this->settings->contact_phone; ?></a></p>
             </div>
             <!-- <div id="google_translate_element"></div> -->
             <div class="col-sm-4 col-md-4 col-lg-4 d-none d-md-none d-lg-block">
