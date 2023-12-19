@@ -15,7 +15,7 @@
                               <li><a href="<?= base_url(' ') ?>">Home</a></li>
                               <li><a href="<?= base_url('/about_us') ?>">About us</a></li>
                               <li><a href="<?= base_url('/contact_us') ?>">Contact Us</a></li>
-                              <li><a href="#">Privacy Policy</a></li>
+                              <li><a href="<?= base_url('/privacy-policy') ?>">Privacy Policy</a></li>
                            </ul>
                         </div>
                         <div class="col-12 col-sm-12 col-md-5 col-lg-5 newsletter">
