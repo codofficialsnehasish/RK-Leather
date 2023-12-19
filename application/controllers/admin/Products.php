@@ -458,7 +458,12 @@ public function price_update_process()
 				$this->mediaupload->doUploadProductImages($this->file_name,$this->input->post('product_id'),$this->input->post('file_id'));
                 $data=array('is_main'=>0);
                 $this->edit_model->edit($data,$product_id,'product_id','product_images');
-                $this->edit_model->edit(array('is_main'=>1),$this->input->post('file_id'),'file_id','product_images');	
+				// $chesss = check_product_main_img($product_id);
+				// if($chesss != -1){
+                // 	$this->edit_model->edit(array('is_main'=>1),$chesss,'file_id','product_images');	
+				// }else{
+					$this->edit_model->edit(array('is_main'=>1),$this->input->post('file_id'),'file_id','product_images');	
+				// }
 
 			}
 			else{
@@ -515,6 +520,7 @@ public function price_update_process()
 		$file_id = $this->input->post('file_id', true);
 		$product_id = $this->input->post('product_id', true);
 		$data=array('is_main'=>0);
+		// $data=array();
 		$this->edit_model->edit($data,$product_id,'product_id','product_images');
 		$this->edit_model->edit(array('is_main'=>1),$file_id,'file_id','product_images');
 		$this->get_all_product_images($product_id);

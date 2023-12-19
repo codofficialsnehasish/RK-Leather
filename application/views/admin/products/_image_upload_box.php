@@ -22,7 +22,7 @@
                             <i class="ti-close"></i>
                         </a>
                         <?php if ($image->is_main == 1): ?>
-                            <a href="javascript:void(0)" class="float-start btn btn-primary btn-sm waves-effect btn-set-image-main" style="padding-bottom: 0px;padding-top: 0px;padding-right: 4px;padding-left: 4px;">Main</a>
+                            <a href="javascript:void(0)" class="float-start btn btn-primary btn-sm waves-effect btn-set-image-main" style="padding-bottom: 0px;padding-top: 0px;padding-right: 4px;padding-left: 4px;" data-file-id="<?php echo $image->file_id; ?>">Main</a>
                         <?php else: ?>
                             <a href="javascript:void(0)" class="float-start btn btn-secondary btn-sm waves-effect btn-set-image-main" style="padding-bottom: 0px;padding-top: 0px;padding-right: 4px;padding-left: 4px;" data-file-id="<?php echo $image->file_id; ?>">Main</a>
                         <?php endif; ?>

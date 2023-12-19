@@ -59,6 +59,7 @@ class Products extends Core_Controller {
 		if($slug!=''){
 			$cat_id=get_id_by_name('categories','cat_slug',$slug,'cat_id');	
 		}
+        echo $cat_id;
 		if($cat_id!=''){
 			$conditions['filter']['category_id'] = $cat_id == '-'? null:$cat_id;
             $conditions1['filter']['category_id'] = $cat_id == '-'? null:$cat_id;
@@ -70,9 +71,9 @@ class Products extends Core_Controller {
         // print_r($conditions1);
 		$totalRec = $this->select->getProducts($conditions);
 		$link = base_url("category/".$slug.'/');
-        $pagination = $this->paginate($link, $totalRec, $this->perPage);
-		$conditions1['start'] = $pagination['offset'];
-		$conditions1['limit'] = $pagination['per_page'];
+        // $pagination = $this->paginate($link, $totalRec, $this->perPage);
+		// $conditions1['start'] = $pagination['offset'];
+		// $conditions1['limit'] = $pagination['per_page'];
 
         if($this->input->get('sort_by')!=''){
             if($this->input->get('sort_by')=='low_to_high'){

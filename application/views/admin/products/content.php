@@ -53,6 +53,9 @@
                                                     <td><a href="<?= admin_url('products/edit/'.$item->id);?>" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= $item->title;?>"><?= word_limiter(strip_tags($item->title), 2);?></a></td>
                                                     <td>
                                                         <?= select_value_by_id('categories','cat_id',$item->category_id,'cat_name');?>
+                                                        <?php if($item->sub_prerent_cata_id!='' && $item->sub_prerent_cata_id!=NULL && $item->sub_prerent_cata_id!=0){?>
+                                                        /<br> <?= $item->sub_prerent_cata_id. select_value_by_id('categories','cat_id',$item->sub_prerent_cata_id,'cat_name');?>
+                                                        <?PHP }?>
                                                         <?php if($item->subcategory_id!='' && $item->subcategory_id!=NULL && $item->subcategory_id!=0){?>
                                                         /<br> <?= $item->subcategory_id. select_value_by_id('categories','cat_id',$item->subcategory_id,'cat_name');?>
                                                         <?PHP }?>

@@ -203,6 +203,25 @@ if (!function_exists('get_product_item_image')) {
     }
 }
 
+if (!function_exists('check_product_main_img')) {
+    function check_product_main_img($product){
+        $ci =& get_instance();
+        $conditions=array(
+                'tblName'=>'product_images',
+                'where'=>array(
+                    'product_id'=>$product->id,
+                    'is_main'=>1
+                )
+        );
+        $result=$ci->select->getResult($conditions);
+        if (!empty($result)) {
+            return $result[0]->file_id;
+        }else{
+            return false;
+        }
+    }
+}
+
 //get product item image
 if (!function_exists('get_product_image_by_id')) {
     function get_product_image_by_id($product_id)
