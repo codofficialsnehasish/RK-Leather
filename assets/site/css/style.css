@@ -2286,6 +2286,9 @@ opacity: 1;
 position: relative;
 overflow: hidden;
 margin: 0 auto 15px;
+box-shadow: 0px 0px 12px 0px #0000001c;
+padding: 12px;
+border-radius:10px;
 }
 .grid-products .item .product-image > a {
 display: block;
@@ -2505,8 +2508,8 @@ margin: 0 -15px;
 }
 .product-labels {
 position: absolute;
-right: 5px;
-top: 5px;
+right: 12px;
+top: 12px;
 z-index: 5;
 display: flex;
 justify-content: flex-end;
@@ -5013,10 +5016,10 @@ width: auto;
 overflow: hidden;
 }
 .product-template__container .product-form__item--submit .btn, .product-template__container .payment-button button {
-font-size: 16px;
+font-size: 1em;
 width: 100%;
 padding: 6px 15px;
-min-height: 47px;
+min-height: 41px;
 }
 .product-template__container .payment-button button {
 color: #ffffff;
