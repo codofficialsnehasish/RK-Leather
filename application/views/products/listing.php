@@ -70,46 +70,87 @@
                               <h2>Categories</h2>
                            </div>
                            <div class="widget-content">
-                              <div class='animated bounceInDown navi'>
-                                 <?php if(!empty($parentcategories)): ?>
-                                 <ul>
-                                    <?php foreach($parentcategories as $cata): ?>
-                                    <li class='<?php if($this->select->get_sub_parent_categories_by_id($cata->cat_id,'is_menu')){echo 'sub-menu';}else{ echo '';} ?>'>
-                                       <a href='<?php if($this->select->get_sub_parent_categories_by_id($cata->cat_id,'is_menu')){echo 'javascript:void(0)';}else{ ?> <?= base_url('products/'.$cata->cat_slug); ?> <?php } ?>'><?= $cata->cat_name ?><?php if($this->select->get_sub_parent_categories_by_id($cata->cat_id,'is_menu')): ?>
-                                          <div class='fa fa-caret-down right'></div> <?php endif; ?>
-                                       </a>
-                                       <ul>
-                                          <?php if($this->select->get_sub_parent_categories_by_id($cata->cat_id,'is_menu')){ ?>
+                              <?php if(!empty($parentcategories)): ?>
+                              <ul class="sidebar_categories">
+                                 <?php foreach($parentcategories as $cata): ?>
+                                 <li class="level1 <?php if($this->select->get_sub_parent_categories_by_id($cata->cat_id,'is_menu')){echo 'sub-level';}else{ echo '';} ?>">
+                                    <a href="<?php if($this->select->get_sub_parent_categories_by_id($cata->cat_id,'is_menu')){echo 'javascript:void(0)';}else{ ?> <?= base_url('products/'.$cata->cat_slug); ?> <?php } ?>" class="site-nav"><?= $cata->cat_name ?></a>
+                                    <ul class="sublinks">
+                                       <?php if($this->select->get_sub_parent_categories_by_id($cata->cat_id,'is_menu')){ ?>
                                           <li><a href='<?= base_url('products/'.$cata->cat_slug); ?>'><?= $cata->cat_name ?></a></li>
-                                          <?php } ?>
-                                          <?php 
-                                             if($this->select->get_sub_parent_categories_by_id($cata->cat_id,'is_menu')){ 
-                                                $res = $this->select->get_sub_parent_categories_by_id($cata->cat_id,'is_menu');
-                                                   foreach($res as $r){
-                                          ?>
-                                          <li class='<?php if($this->select->get_sub_categories_by_id($r->cat_id,'is_menu')){echo 'sub-menu';}else{ echo '';} ?>'>
-                                             <a href='<?php if($this->select->get_sub_categories_by_id($r->cat_id,'is_menu')){echo 'javascript:void(0)';}else{ ?> <?= base_url('products/'.$r->cat_slug); ?> <?php } ?>'><?= $r->cat_name ?><?php if($this->select->get_sub_categories_by_id($r->cat_id,'is_menu')): ?>
-                                                <div class='fa fa-caret-down right'></div><?php endif; ?>
-                                             </a>
-                                             <ul>
-                                                <li><a href='<?= base_url('products/'.$r->cat_slug); ?>'><?= $r->cat_name ?></a></li>
-                                                <?php 
-                                                   $res_sub = $this->select->get_sub_categories_by_id($r->cat_id,'is_menu');
-                                                   foreach($res_sub as $sup){
-                                                ?>
-                                                <li><a href='<?= base_url('products/'.$sup->cat_slug); ?>'><?= $sup->cat_name ?></a></li>
-                                                <?php } ?>
-                                             </ul>
-                                          </li>
-                                          <?php } } ?>
-                                       </ul>
-                                    </li>
-                                    <?php endforeach; ?>
-                                 </ul>
-                                 <?php endif; ?>
-                              </div>
+                                       <?php } ?>
+                                       <?php 
+                                          if($this->select->get_sub_parent_categories_by_id($cata->cat_id,'is_menu')){ 
+                                             $res = $this->select->get_sub_parent_categories_by_id($cata->cat_id,'is_menu');
+                                                foreach($res as $r){
+                                       ?>
+                                       <li class="level2 <?php if($this->select->get_sub_categories_by_id($r->cat_id,'is_menu')){echo 'sub-level';}else{ echo '';} ?>">
+                                          <a href="<?php if($this->select->get_sub_categories_by_id($r->cat_id,'is_menu')){echo 'javascript:void(0)';}else{ ?> <?= base_url('products/'.$r->cat_slug); ?> <?php } ?>" class="site-nav"><?= $r->cat_name ?></a>
+                                          <ul class="sublinks">
+                                             <li><a href='<?= base_url('products/'.$r->cat_slug); ?>'><?= $r->cat_name ?></a></li>
+                                             <?php 
+                                                $res_sub = $this->select->get_sub_categories_by_id($r->cat_id,'is_menu');
+                                                foreach($res_sub as $sup){
+                                             ?>
+                                             <li class="level2"><a href="<?= base_url('products/'.$sup->cat_slug); ?>" class="site-nav"><?= $sup->cat_name ?></a></li>
+                                             <?php } ?>
+                                          </ul>
+                                       </li>
+                                       <?php } } ?>
+                                    </ul>
+                                 </li>
+                                 <?php endforeach; ?>
+                              </ul>
+                              <?php endif; ?>
                            </div>
                         </div>
+                        <!-- End Categories -->
+                        <!-- Categories -->
+                        <!-- <div class="sidebar_widget filterBox categories filter-widget">
+                           <div class="widget-title">
+                              <h2>Categories</h2>
+                           </div>
+                           <div class="widget-content">
+                              <div class='animated bounceInDown navi'>
+                                 <?php //if(!empty($parentcategories)): ?>
+                                 <ul>
+                                    <?php //foreach($parentcategories as $cata): ?>
+                                    <li class='<?php //if($this->select->get_sub_parent_categories_by_id($cata->cat_id,'is_menu')){echo 'sub-menu';}else{ echo '';} ?>'>
+                                       <a href='<?php //if($this->select->get_sub_parent_categories_by_id($cata->cat_id,'is_menu')){echo 'javascript:void(0)';}else{ ?> <= base_url('products/'.$cata->cat_slug); ?> <?php //} ?>'><= $cata->cat_name ?><?php //if($this->select->get_sub_parent_categories_by_id($cata->cat_id,'is_menu')): ?>
+                                          <div class='fa fa-caret-down right'></div> <php endif; ?>
+                                       </a>
+                                       <ul>
+                                          <?php //if($this->select->get_sub_parent_categories_by_id($cata->cat_id,'is_menu')){ ?>
+                                          <li><a href='<= base_url('products/'.$cata->cat_slug); ?>'><= $cata->cat_name ?></a></li>
+                                          <?php //} ?>
+                                          <?php 
+                                             // if($this->select->get_sub_parent_categories_by_id($cata->cat_id,'is_menu')){ 
+                                             //    $res = $this->select->get_sub_parent_categories_by_id($cata->cat_id,'is_menu');
+                                             //       foreach($res as $r){
+                                          ?>
+                                          <li class='<?php //if($this->select->get_sub_categories_by_id($r->cat_id,'is_menu')){echo 'sub-menu';}else{ echo '';} ?>'>
+                                             <a href='<?php //if($this->select->get_sub_categories_by_id($r->cat_id,'is_menu')){echo 'javascript:void(0)';}else{ ?> <= base_url('products/'.$r->cat_slug); ?> <?php //} ?>'><= $r->cat_name ?><?php //if($this->select->get_sub_categories_by_id($r->cat_id,'is_menu')): ?>
+                                                <div class='fa fa-caret-down right'></div><?php //endif; ?>
+                                             </a>
+                                             <ul>
+                                                <li><a href='<= base_url('products/'.$r->cat_slug); ?>'><= $r->cat_name ?></a></li>
+                                                <?php 
+                                                   // $res_sub = $this->select->get_sub_categories_by_id($r->cat_id,'is_menu');
+                                                   // foreach($res_sub as $sup){
+                                                ?>
+                                                <li><a href='<= base_url('products/'.$sup->cat_slug); ?>'><= $sup->cat_name ?></a></li>
+                                                <?php //} ?>
+                                             </ul>
+                                          </li>
+                                          <?php //} } ?>
+                                       </ul>
+                                    </li>
+                                    <?php //endforeach; ?>
+                                 </ul>
+                                 <?php //endif; ?>
+                              </div>
+                           </div>
+                        </div> -->
                      </div>
                   </div>
                   <!-- End Sidebar -->
@@ -122,7 +163,9 @@
                               <div class="row">
                                  <div class="col-4 col-md-4 col-lg-4 filters-toolbar__item collection-view-as d-flex justify-content-Start align-items-center"> 
                                  </div>
-                                 <div class="col-4 col-md-4 col-lg-4 text-center filters-toolbar__item filters-toolbar__item--count d-flex justify-content-center align-items-center">
+                                 <div class="col-4 col-md-4 col-lg-4 filters-toolbar__item collection-view-as d-flex justify-content-Start align-items-center"> 
+                                 </div>
+                                 <div class="col-4 col-md-4 col-lg-4 text-center filters-toolbar__item filters-toolbar__item--count d-flex justify-content-center align-items-center" style="justify-content: end !important;">
                                     <span class="filters-toolbar__product-count">Showing: <span id="shownum"></span></span>
                                  </div>
                               </div>
